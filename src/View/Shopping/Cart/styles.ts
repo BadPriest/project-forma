@@ -3,7 +3,6 @@ import { CircleButton } from '../../Shared/Button';
 
 export const StyledWrapper = styled.div`
   height: 100%;
-  border: 1px solid red;
 `;
 
 export const StyledFeedbackCartItemsCount = styled.span`
