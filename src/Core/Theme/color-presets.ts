@@ -1,43 +1,35 @@
-interface colorPreset {
-  background: string;
-  text: string;
+export const main = {
+  accent: '',
+  success: '',
+  warning: '',
+  danger: '',
   interactive: {
-    surface: string;
-    surfaceActive: string;
-    text: string;
-    textActive: string;
-  };
-  muted: {
-    surface: string;
-    surfaceActive: string;
-    text: string;
-    textActive: string;
-  };
-  accent: string;
-  success: string;
-  warning: string;
-  danger: string;
-}
-
-export const main: colorPreset = {
-  background: '#fdfdfd',
-  text: '#272727',
-  interactive: {
-    surface: '#dfdfdf',
+    surface: '#272727',
+    text: '#dfdfdf',
     surfaceActive: 'red',
-    text: '#2e2e2e',
     textActive: 'red',
   },
   muted: {
-    surface: '#5B5B5B66',
-    surfaceActive: '#E7E7E7',
-    text: '#E7E7E766',
-    textActive: '#272727',
+    surface: '#272727',
+    surfaceActive: 'red',
+    text: '#dfdfdf',
+    textActive: 'red',
   },
-  accent: '#FFDC94',
-  success: '',
-  warning: '',
-  danger: '#ff3a5e',
+  header: {
+    background: '#dfdfdf',
+    text: '#272727',
+    interactive: {
+      surface: '#272727',
+      text: '#dfdfdf',
+      surfaceActive: '#27272799',
+      textActive: '#dfdfdf',
+    },
+  },
+  body: {
+    background: '#fdfdfd',
+    surface: '#fdfdfd',
+    text: '#272727',
+  },
 };
 
 export default main;
