@@ -29,7 +29,7 @@ export const BaseButton = styled(ResetButton)`
   padding: 1em 2em;
 
   color: ${({ theme }) => theme.colors.interactive.surface};
-  background-color: ${({ theme }) => theme.colors.interactive.text};
+  border: 1px solid ${({ theme }) => theme.colors.interactive.surface};
 
   &:hover {
     color: ${({ theme }) => theme.colors.interactive.textActive};

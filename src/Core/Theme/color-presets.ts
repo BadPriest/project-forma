@@ -6,8 +6,8 @@ export const main = {
   interactive: {
     surface: '#272727',
     text: '#dfdfdf',
-    surfaceActive: 'red',
-    textActive: 'red',
+    surfaceActive: '#272727',
+    textActive: '#e8e8e8',
   },
   muted: {
     surface: '#272727',
