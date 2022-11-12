@@ -1,22 +1,29 @@
 import React, { ReactNode } from 'react';
-import Container from '../Shared/Container';
 
-// import Container from '../Shared/Container';
+import Container from '../Shared/Container';
 import VSeparator from '../Shared/VSeparator';
 
 import Footer from './Footer';
-import Header from './Header';
+import Header, { IPropsHeader } from './Header';
 
 import { StyledTemplateWrapper } from './styles';
 
 export interface IPropsViewTemplate {
+  headerProps: IPropsHeader;
   children: ReactNode;
 }
 
-function ViewTemplate({ children }: IPropsViewTemplate) {
+function ViewTemplate(props: IPropsViewTemplate) {
+  const { headerProps, children } = props;
+  const { brandTitle, infoText, asideMenu } = headerProps;
+
   return (
     <StyledTemplateWrapper>
-      <Header />
+      <Header
+        brandTitle={brandTitle}
+        infoText={infoText}
+        asideMenu={asideMenu}
+      />
       <Container>
         {children}
         <VSeparator height="4em" />

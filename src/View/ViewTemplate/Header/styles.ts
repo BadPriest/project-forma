@@ -2,15 +2,18 @@ import styled from 'styled-components';
 import Text from '../../Shared/Text';
 
 export const StyledHeaderWrapper = styled.header`
-  background-color: ${(props) => props.theme.colors.interactive.surface};
+  background-color: ${(props) => props.theme.colors.header.background};
 
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  grid-template-areas: 'title info shoppingCart';
+  grid-template-columns: auto 2fr 1fr;
+  grid-template-areas: 'title info asideMenu';
+  align-items: center;
 `;
 
 export const StyledHeaderTitle = styled.h2`
-  color: ${(props) => props.theme.colors.interactive.text};
+  grid-area: title;
+
+  color: ${(props) => props.theme.colors.header.text};
   font-family: ${(props) => props.theme.typography.body.fontFamily};
   font-weight: ${(props) => props.theme.typography.headings.fontWeight};
 
@@ -19,18 +22,18 @@ export const StyledHeaderTitle = styled.h2`
 `;
 
 export const StyledHeaderInfo = styled(Text)`
-  color: ${(props) => props.theme.colors.interactive.text};
+  grid-area: info;
+
+  color: ${(props) => props.theme.colors.header.text};
   font-family: ${(props) => props.theme.typography.body.fontFamily};
   font-weight: ${(props) => props.theme.typography.headings.fontWeight};
+  font-style: italic;
 
   margin: 1.1rem;
 `;
 
-export const StyledHeaderCart = styled(Text)`
-  color: ${(props) => props.theme.colors.interactive.text};
-  font-family: ${(props) => props.theme.typography.body.fontFamily};
-  font-weight: ${(props) => props.theme.typography.headings.fontWeight};
+export const StyledAsideMenu = styled.div`
+  grid-area: asideMenu;
 
-  margin: 1.1rem;
   margin-left: auto;
 `;

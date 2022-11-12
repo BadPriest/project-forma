@@ -1,19 +1,24 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
+import { APP_SLOGAN, APP_TITLE } from '../../../Core/App.settings';
 import {
   StyledHeaderWrapper,
   StyledHeaderTitle,
   StyledHeaderInfo,
-  StyledHeaderCart,
+  StyledAsideMenu,
 } from './styles';
 
-function Header() {
+export interface IPropsHeader {
+  brandTitle?: string | ReactNode;
+  infoText?: string | ReactNode;
+  asideMenu: string | ReactNode;
+}
+
+function Header({ brandTitle, infoText, asideMenu }: IPropsHeader) {
   return (
     <StyledHeaderWrapper>
-      <StyledHeaderTitle>whee</StyledHeaderTitle>
-      <StyledHeaderInfo>
-        <i>The most definitive shape store in the world</i>
-      </StyledHeaderInfo>
-      <StyledHeaderCart>No items in cart [cart-icon-button]</StyledHeaderCart>
+      <StyledHeaderTitle>{brandTitle || APP_TITLE}</StyledHeaderTitle>
+      <StyledHeaderInfo>{infoText || APP_SLOGAN}</StyledHeaderInfo>
+      <StyledAsideMenu>{asideMenu}</StyledAsideMenu>
     </StyledHeaderWrapper>
   );
 }
