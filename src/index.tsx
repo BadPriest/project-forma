@@ -4,6 +4,10 @@ import './index.css';
 import App from './Core/App';
 import reportWebVitals from './reportWebVitals';
 
+import configureStore from './Store/products.store';
+
+configureStore();
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
