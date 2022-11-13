@@ -1,10 +1,11 @@
 import React from 'react';
-import { useStore } from '../../../../Store/store';
 import { StyledFeedbackCartItemsCount } from './styles';
 
-function CartItemsFeedback() {
-  const { cartItems } = useStore()[0];
+export interface IPropsCartItemsFeedback {
+  cartItems: number[];
+}
 
+function CartItemsFeedback({ cartItems }: IPropsCartItemsFeedback) {
   const renderItemCounterFeedback = () => {
     if (!cartItems?.length) {
       return <>No items in cart</>;
