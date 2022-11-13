@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Text from '../../Shared/Text';
+import Text from '../../Shared/Typography';
 
 export const StyledHeaderWrapper = styled.header`
   background-color: ${(props) => props.theme.colors.header.background};

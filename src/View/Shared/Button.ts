@@ -26,7 +26,7 @@ export const BaseButton = styled(ResetButton)`
   cursor: pointer;
 
   text-transform: uppercase;
-  padding: 1em 2em;
+  padding: 0.5em 1.4em;
 
   color: ${({ theme }) => theme.colors.interactive.surface};
   border: 1px solid ${({ theme }) => theme.colors.interactive.surface};

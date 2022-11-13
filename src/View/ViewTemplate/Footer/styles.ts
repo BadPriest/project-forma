@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Text from '../../Shared/Text';
+import Text from '../../Shared/Typography';
 
 export const StyledFooter = styled.footer`
   background-color: ${({ theme }) => theme.colors.muted.surface};
