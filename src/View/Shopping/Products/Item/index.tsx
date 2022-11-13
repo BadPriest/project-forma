@@ -1,5 +1,7 @@
 import React from 'react';
+import { actions as cartItemActions } from '../../../../Store/cartItems.store';
 import { IProduct } from '../../../../Store/products.store';
+import { useStore } from '../../../../Store/store';
 import { BaseButton } from '../../../Shared/Button';
 import StyledWrapper, {
   StyledImageWrapper,
@@ -15,6 +17,12 @@ export interface IPropsProductItem {
 
 function ProductItem({ product }: IPropsProductItem) {
   const { name, description, price, id } = product;
+  const dispatch = useStore()[1];
+
+  const handleClickedAddToCart = () => {
+    dispatch(cartItemActions.ADD_TO_CART, id);
+  };
+
   return (
     <StyledWrapper>
       <StyledImageWrapper>[img]</StyledImageWrapper>
@@ -22,7 +30,7 @@ function ProductItem({ product }: IPropsProductItem) {
       <StyledProductDescription>{description}</StyledProductDescription>
       <StyledProductPrice>{price} €</StyledProductPrice>
       <StyledProductAddToCart>
-        <BaseButton>Add to cart</BaseButton>
+        <BaseButton onClick={handleClickedAddToCart}>Add to cart</BaseButton>
       </StyledProductAddToCart>
     </StyledWrapper>
   );
