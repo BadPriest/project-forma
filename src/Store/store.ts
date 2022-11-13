@@ -25,6 +25,10 @@ export const useStore = () => {
   };
 
   useEffect(() => {
+    // Each consumer will get his own instance of setState
+    // This will be used to rerender the consumers when the
+    // state changes
+
     listeners.push(setState);
 
     return () => {
