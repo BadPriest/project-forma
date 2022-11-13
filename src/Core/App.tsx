@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import OpenCart from '../View/Shopping/Cart/OpenCart';
 
-import ShoppingCart from '../View/Shopping/Cart';
 import ProductList from '../View/Shopping/Products/List';
 import ViewTemplate from '../View/ViewTemplate';
 
@@ -10,7 +10,7 @@ import { Theme } from './Theme';
 function App() {
   return (
     <ThemeProvider theme={Theme}>
-      <ViewTemplate headerProps={{ asideMenu: <ShoppingCart /> }}>
+      <ViewTemplate headerProps={{ asideMenu: <OpenCart /> }}>
         <ProductList />
       </ViewTemplate>
     </ThemeProvider>

@@ -1,17 +1,8 @@
 import styled from 'styled-components';
-import { CircleButton } from '../../Shared/Button';
+import { CircleButton } from '../../../Shared/Button';
 
 export const StyledWrapper = styled.div`
   height: 100%;
-`;
-
-export const StyledFeedbackCartItemsCount = styled.span`
-  margin: 1rem;
-
-  color: ${(props) => props.theme.colors.header.text};
-  font-family: ${(props) => props.theme.typography.body.fontFamily};
-  font-weight: ${(props) => props.theme.typography.headings.fontWeight};
-  font-style: italic;
 `;
 
 export const StyledGoToCartButton = styled(CircleButton)`
