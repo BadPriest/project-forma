@@ -7,7 +7,6 @@ function ProductList() {
 
   return (
     <>
-      Products!
       {!!products.length &&
         products.map((product: any) => (
           <ProductItem key={product.id} product={product} />
