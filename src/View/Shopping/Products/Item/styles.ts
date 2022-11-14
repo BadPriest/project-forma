@@ -18,6 +18,7 @@ export const StyledImageWrapper = styled.div`
   align-self: center;
   justify-self: center;
 
+  text-align: center;
   margin: 1rem;
 `;
 export const StyledProductInfoWrapper = styled.header``;
@@ -27,7 +28,7 @@ export const StyledProductName = styled(H2)`
   text-transform: capitalize;
   font-style: italic;
 
-  margin-bottom: 0;
+  margin-bottom: 0.5rem;
 `;
 
 export const StyledProductDescription = styled(Text)`
@@ -43,7 +44,7 @@ export const StyledProductPrice = styled(H3)`
   margin-left: auto;
 `;
 
-export const StyledProductAddToCart = styled(Text)`
+export const StyledProductAddToCart = styled.div`
   grid-area: addToCart;
   margin-left: auto;
 `;
