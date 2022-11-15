@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { APP_BACKDROP_ROOT, APP_MODAL_ROOT } from '../../../../Core/App.settings';
+import {
+  APP_BACKDROP_ROOT,
+  APP_MODAL_ROOT,
+} from '../../../../Core/App.settings';
 import { IProduct } from '../../../../Store/products.store';
 import StyledBackdrop from '../../../Shared/Backdrop';
-import { BaseButton } from '../../../Shared/Button';
-import Text, { H2 } from '../../../Shared/Typography';
-import StyledModal, { StyledModalWrapper } from './styles';
+import Modal from '../../../Shared/Modal';
+import Text from '../../../Shared/Typography';
 
 export interface IPropsCartItemsModal {
   onClose: () => void;
@@ -14,13 +16,15 @@ export interface IPropsCartItemsModal {
 
 function CartItemModal({ onClose, cartItems }: IPropsCartItemsModal) {
   return (
-    <StyledModalWrapper>
-      <StyledModal>
-        <H2>Modal</H2>
-        <Text>{JSON.stringify(cartItems)}</Text>
-        <BaseButton onClick={onClose}>close</BaseButton>
-      </StyledModal>
-    </StyledModalWrapper>
+    <Modal
+      title="Shopping cart"
+      labelCancel="keep shopping"
+      labelConfirm="go to checkout"
+      onCancel={onClose}
+      onConfirm={() => console.log('OK')}
+    >
+      <Text>{JSON.stringify(cartItems)}</Text>
+    </Modal>
   );
 }
 
