@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useStore } from '../../../../Store/store';
 import CartItemsFeedback from '../CartItemsFeedback';
-import CartItemsList from '../ItemsList';
+import CartItemsView from '../CartItemsView';
 import { StyledGoToCartButton, StyledWrapper } from './styles';
 
 function OpenCart() {
@@ -15,7 +15,7 @@ function OpenCart() {
   return (
     <StyledWrapper>
       {openCart && (
-        <CartItemsList onClose={handleClicked} cartItems={cartItems} />
+        <CartItemsView onClose={handleClicked} cartProducts={cartItems} />
       )}
       <CartItemsFeedback cartItems={cartItems} />
       <StyledGoToCartButton onClick={handleClicked}>[i]</StyledGoToCartButton>

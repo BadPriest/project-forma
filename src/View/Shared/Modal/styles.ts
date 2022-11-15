@@ -42,6 +42,7 @@ export const StyledModalFooter = styled.footer`
   grid-template-columns: 3fr 2fr 0.5fr 2fr;
   grid-template-areas: '. cancel . confirm';
   margin: 0 2rem;
+  margin-bottom: 2rem;
 `;
 
 export const StyledCancelButton = styled(BaseButton)`
