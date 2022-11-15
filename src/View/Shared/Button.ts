@@ -19,9 +19,13 @@ const ResetButton = styled.button`
 `;
 
 export const BaseButton = styled(ResetButton)`
+  transition: ${(props) =>
+      props.theme.animations.surface.deactivationTransition}
+    ease-in;
+
   font-family: ${(props) => props.theme.typography.body.fontFamily};
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
 
   cursor: pointer;
 
@@ -32,6 +36,10 @@ export const BaseButton = styled(ResetButton)`
   border: 1px solid ${({ theme }) => theme.colors.interactive.surface};
 
   &:hover {
+    transition: ${(props) =>
+        props.theme.animations.surface.activationTransition}
+      ease-out;
+
     color: ${({ theme }) => theme.colors.interactive.textActive};
     background-color: ${({ theme }) => theme.colors.interactive.surfaceActive};
   }

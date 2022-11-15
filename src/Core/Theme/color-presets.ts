@@ -10,10 +10,8 @@ export const main = {
     textActive: '#e8e8e8',
   },
   muted: {
-    surface: '#272727',
-    surfaceActive: 'red',
+    surface: '#dedede88',
     text: '#dfdfdf',
-    textActive: 'red',
   },
   header: {
     background: '#dfdfdf',

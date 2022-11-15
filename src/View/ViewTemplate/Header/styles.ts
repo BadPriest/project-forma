@@ -14,8 +14,8 @@ export const StyledHeaderWrapper = styled.header`
     content: '';
     background-color: ${(props) => props.theme.colors.header.background};
 
-    height: 1.2rem;
     position: absolute;
+    height: 2.5vw;
     top: 100%;
     left: 0;
     right: 0;

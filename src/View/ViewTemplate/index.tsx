@@ -24,10 +24,7 @@ function ViewTemplate(props: IPropsViewTemplate) {
         infoText={infoText}
         asideMenu={asideMenu}
       />
-      <Container>
-        {children}
-        <VSeparator height="4em" />
-      </Container>
+      <Container>{children}</Container>
       <Footer />
     </StyledTemplateWrapper>
   );

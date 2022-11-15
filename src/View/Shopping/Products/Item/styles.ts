@@ -19,7 +19,9 @@ export const StyledImageWrapper = styled.div`
   justify-self: center;
 
   text-align: center;
-  margin: 1rem;
+  padding: 3rem;
+  border: 1px solid ${({ theme }) => theme.colors.muted.text};
+  background-color: ${({ theme }) => theme.colors.muted.surface};
 `;
 export const StyledProductInfoWrapper = styled.header``;
 
@@ -28,7 +30,7 @@ export const StyledProductName = styled(H2)`
   text-transform: capitalize;
   font-style: italic;
 
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0;
 `;
 
 export const StyledProductDescription = styled(Text)`
@@ -40,7 +42,8 @@ export const StyledProductDescription = styled(Text)`
 export const StyledProductPrice = styled(H3)`
   grid-area: price;
 
-  margin-bottom: 0;
+  margin: 0.5rem 0;
+
   margin-left: auto;
 `;
 

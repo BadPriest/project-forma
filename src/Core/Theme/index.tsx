@@ -28,7 +28,8 @@ const typography = {
 
 const animations = {
   surface: {
-    activationTransition: '0.2s',
+    activationTransition: '0.3s',
+    deactivationTransition: '0.2s',
   },
 };
 
