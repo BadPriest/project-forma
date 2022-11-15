@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import Text from '../../../Shared/Typography';
+import Text, { H3 } from '../../../Shared/Typography';
 
 export const StyledWrapper = styled.article`
-  border: 1px solid red;
   margin: 1rem 0;
 
   display: grid;
@@ -20,8 +19,10 @@ export const StyledThumbnailWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.muted.surface};
 `;
 
-export const StyledCartItemName = styled(Text)`
+export const StyledCartItemName = styled(H3)`
   grid-area: title;
+  margin-left: 1rem;
+  text-transform: capitalize;
 `;
 
 export const StyledCartItemCount = styled(Text)`
