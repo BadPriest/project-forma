@@ -7,47 +7,66 @@ export const actions = {
 
 export interface ICartItem {
   product: IProduct;
-  itemCount: number;
+  quantity: number;
+}
+
+export interface CartState {
+  items: ICartItem[];
+  totalItemsCount: number;
+  totalPrice: number;
 }
 
 const configureStore = () => {
   initStore(
     {
       ADD_TO_CART: (state: any, productId: string) => {
-        const cartProductIndex = state.cartItems?.findIndex(
+        const cartProductIndex = state.cart.items?.findIndex(
           (item: ICartItem) => item.product.id === productId
         );
 
         const isNewAdditionProduct =
           !!cartProductIndex && cartProductIndex === -1;
 
-        const newTotalCount = state.totalItemsCount + 1;
-
+        let newState;
         if (isNewAdditionProduct) {
-          const newState = addNewProduct(state, productId);
-          return { cartItems: newState, totalItemsCount: newTotalCount };
+          newState = addNewProduct(state, productId);
         }
 
-        const newState = addPreexistingProduct(
+        if (!isNewAdditionProduct) {
+          newState = addPreexistingProduct(state, productId, cartProductIndex);
+        }
+
+        const { newTotalItemsCount, newTotalPrice } = getUpdatedCounts(
           state,
-          productId,
-          cartProductIndex
+          newState
         );
 
-        return { cartItems: newState, totalItemsCount: newTotalCount };
+        return {
+          cart: {
+            items: newState,
+            totalItemsCount: newTotalItemsCount,
+            totalPrice: newTotalPrice,
+          } as CartState,
+        };
       },
     },
-    { cartItems: [], totalItemsCount: 0 }
+    {
+      cart: {
+        items: [] as ICartItem[],
+        totalItemsCount: 0 as number,
+        totalPrice: 0 as number,
+      } as CartState,
+    }
   );
 };
 
-const addNewProduct = (state: any, productId: any) => {
+const addNewProduct = (state: any, productId: string) => {
   const product = (state.products as IProduct[])
     .filter((p: IProduct) => p.id === productId)
     .pop();
 
-  const newCartItem = { product, itemCount: 1 } as ICartItem;
-  const newState = [...state.cartItems, { ...newCartItem }];
+  const newCartItem = { product, quantity: 1 } as ICartItem;
+  const newState = [...state.cart.items, { ...newCartItem }];
 
   return newState;
 };
@@ -57,20 +76,34 @@ const addPreexistingProduct = (
   productId: string,
   cartProductIndex: number
 ) => {
-  const currentCartItems = state.cartItems as ICartItem[];
+  const currentCartItems = state.cart.items as ICartItem[];
   const existingCarItem = currentCartItems[cartProductIndex];
+
   const updatedCartItem = {
     product: existingCarItem.product,
-    itemCount: existingCarItem.itemCount + 1,
-  };
+    quantity: existingCarItem.quantity + 1,
+  } as ICartItem;
 
-  const filteredState = state.cartItems.filter(
+  const filteredState = state.cart.items.filter(
     (i: ICartItem) => i.product.id !== productId
   );
 
   const newState = [...filteredState, { ...updatedCartItem }];
-
   return newState;
+};
+
+const getUpdatedCounts = (globalState: any, cartItemsState: any) => {
+  const newTotalItemsCount = globalState.cart.totalItemsCount + 1;
+  const newTotalPrice = (cartItemsState as ICartItem[]).reduce(
+    (previous, current) => {
+      const sum = current.product.price * current.quantity;
+      const newTotal = previous + sum;
+      return newTotal;
+    },
+    0
+  );
+
+  return { newTotalItemsCount, newTotalPrice };
 };
 
 export default configureStore;

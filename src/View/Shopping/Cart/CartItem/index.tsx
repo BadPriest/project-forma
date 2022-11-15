@@ -15,14 +15,14 @@ export interface IPropsCartItem {
 
 function CartItem({ item }: IPropsCartItem) {
   const { name, description, price } = item.product as IProduct;
-  const { itemCount } = item;
+  const { quantity: itemCount } = item;
 
   return (
     <StyledWrapper>
       <StyledThumbnailWrapper>[tmb]</StyledThumbnailWrapper>
       <StyledCartItemName>{name}</StyledCartItemName>
       <StyledCartItemCount>{itemCount}</StyledCartItemCount>
-      <StyledCartItemPrice>{price}</StyledCartItemPrice>
+      <StyledCartItemPrice>{price} €</StyledCartItemPrice>
     </StyledWrapper>
   );
 }

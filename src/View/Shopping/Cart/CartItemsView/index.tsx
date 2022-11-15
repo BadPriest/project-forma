@@ -4,21 +4,22 @@ import {
   APP_BACKDROP_ROOT,
   APP_MODAL_ROOT,
 } from '../../../../Core/App.settings';
+
 import { ICartItem } from '../../../../Store/cartItems.store';
-import { IProduct } from '../../../../Store/products.store';
-import { useStore } from '../../../../Store/store';
+
 import StyledBackdrop from '../../../Shared/Backdrop';
 import Modal from '../../../Shared/Modal';
-import Text from '../../../Shared/Typography';
 import CartItem from '../CartItem';
+import CartTotalPriceFeedback from '../CartTotalPriceFeedback';
+
 import { StyledWrapper } from './styles';
 
 export interface IPropsCartItemsModal {
   onClose: () => void;
-  cartProducts?: ICartItem[];
+  cart?: { items: ICartItem[]; totalItemsCount: number; totalPrice: number };
 }
 
-function CartItemModal({ onClose, cartProducts }: IPropsCartItemsModal) {
+function CartItemModal({ onClose, cart }: IPropsCartItemsModal) {
   return (
     <Modal
       title="Shopping cart"
@@ -28,35 +29,27 @@ function CartItemModal({ onClose, cartProducts }: IPropsCartItemsModal) {
       onConfirm={() => console.log('OK')}
     >
       <StyledWrapper>
-        {cartProducts &&
-          cartProducts.map((item) => (
+        {cart &&
+          cart.items.map((item) => (
             <CartItem key={item.product.id} item={item} />
           ))}
+        <CartTotalPriceFeedback totalPrice={cart?.totalPrice} />
       </StyledWrapper>
     </Modal>
   );
 }
 
-function CartItemsView({
-  onClose,
-  cartProducts: cartItems,
-}: IPropsCartItemsModal) {
+function CartItemsView({ onClose, cart }: IPropsCartItemsModal) {
   const modalRoot = document.getElementById(APP_MODAL_ROOT) as HTMLElement;
   const backdropRoot = document.getElementById(
     APP_BACKDROP_ROOT
   ) as HTMLElement;
 
-  // TODO: filter products by id, add item count based on ID repetition
-  // const { products } = useStore()[0];
-
-  const cartProducts = cartItems;
-
   return (
     <>
       {ReactDOM.createPortal(<StyledBackdrop />, backdropRoot)}
       {ReactDOM.createPortal(
-        // <CartItemModal onClose={onClose} cartItems={cartItems} />,
-        <CartItemModal onClose={onClose} cartProducts={cartProducts} />,
+        <CartItemModal onClose={onClose} cart={cart} />,
         modalRoot
       )}
     </>

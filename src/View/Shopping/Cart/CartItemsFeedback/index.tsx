@@ -2,16 +2,16 @@ import React from 'react';
 import { StyledFeedbackCartItemsCount } from './styles';
 
 export interface IPropsCartItemsFeedback {
-  cartItems: number[];
+  cartItemCount: number;
 }
 
-function CartItemsFeedback({ cartItems }: IPropsCartItemsFeedback) {
+function CartItemsFeedback({ cartItemCount }: IPropsCartItemsFeedback) {
   const renderItemCounterFeedback = () => {
-    if (!cartItems?.length) {
+    if (!cartItemCount) {
       return <>No items in cart</>;
     }
 
-    if (cartItems?.length === 1) {
+    if (cartItemCount === 1) {
       return (
         <>
           <strong>1</strong> item in cart
@@ -21,7 +21,7 @@ function CartItemsFeedback({ cartItems }: IPropsCartItemsFeedback) {
 
     return (
       <>
-        <strong>{cartItems.length}</strong> items in cart
+        <strong>{cartItemCount}</strong> items in cart
       </>
     );
   };

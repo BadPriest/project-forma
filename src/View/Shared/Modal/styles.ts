@@ -18,7 +18,7 @@ export const StyledModal = styled.div`
   position: relative;
   min-width: 40rem;
   min-height: 15rem;
-  max-height: 30rem;
+  max-height: 80vh;
 
   margin-top: -20rem;
 
