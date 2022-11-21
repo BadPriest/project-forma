@@ -20,8 +20,6 @@ export const StyledModal = styled.div`
   min-height: 15rem;
   max-height: 80vh;
 
-  margin-top: -20rem;
-
   z-index: 111;
   overflow-y: auto;
 
