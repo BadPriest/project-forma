@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import Text from '../../Shared/Typography';
 
 export const StyledFooter = styled.footer`
-  background-color: ${({ theme }) => theme.colors.muted.surface};
-  color: ${({ theme }) => theme.colors.muted.text};
+  background-color: ${({ theme }) => theme.colors.footer.surface};
+  color: ${({ theme }) => theme.colors.footer.text};
+
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -28,6 +28,10 @@ export const main = {
     surface: '#fdfdfd',
     text: '#272727',
   },
+  footer: {
+    surface: '#5b5b5b',
+    text: '#dfdfdf',
+  },
 };
 
 export default main;
